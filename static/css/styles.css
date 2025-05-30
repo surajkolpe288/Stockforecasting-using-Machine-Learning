@@ -1,0 +1,299 @@
+/* Global reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Tech-themed background for login and registration pages */
+.bg-tech {
+    background: url('https://media.istockphoto.com/id/1488521100/photo/abstract-glitter-background-bokeh-shallow-depth-of-field-selective-focus-water-blue.jpg?s=612x612&w=0&k=20&c=D5d8grgiWuSaO7K9wjOwX1ZbPvvUBi_rpQxxkCDfkOk=') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Light background for result page */
+.bg-light {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    animation: fadeIn 1s ease-out;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    opacity: 0.95;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Highlighted text */
+.highlight {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Two-column layout for results and chart */
+.result-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.prediction-values {
+    flex: 1;
+    min-width: 280px;
+    background-color: #ffffff;
+    color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-values p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Chart container */
+.chart-container {
+    flex: 1;
+    min-width: 280px;
+    background-color: #ffffff;
+    color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #f1f1f1;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Flash messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.alert-error {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .result-grid {
+        flex-direction: column;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"] {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* Animations and transitions */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Logout Button - Top Right */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.logout-button form button {
+    padding: 10px 16px;
+    background-color: #4CAF50; /* green */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button form button:hover {
+    background-color: #388e3c; /* darker green on hover */
+}
+
+/* Make the dashboard items look like buttons with black background */
+.dashboard-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* Black background */
+    color: white; /* White text */
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.dashboard-button:hover {
+    background-color: #444; /* Slightly lighter black on hover */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Optional: Add focus effect for accessibility */
+.dashboard-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-button {
+    margin-bottom: 20px; /* Custom bottom margin */
+}
+
+
+
