@@ -1,0 +1,48 @@
+{
+    "us": [
+        {
+            "symbol": "CVX",
+            "name": "Chevron Corporation",
+            "price": 137.83,
+            "yield": 4.96,
+            "payout_ratio": 78.17
+        },
+        {
+            "symbol": "MRK",
+            "name": "Merck & Company, Inc.",
+            "price": 77.59,
+            "yield": 4.18,
+            "payout_ratio": 47.09
+        },
+        {
+            "symbol": "PEP",
+            "name": "Pepsico, Inc.",
+            "price": 131.37,
+            "yield": 4.33,
+            "payout_ratio": 83.68
+        }
+    ],
+    "nse": [
+        {
+            "symbol": "HCLTECH.NS",
+            "name": "HCL TECHNOLOGIES LTD",
+            "price": 1651.8,
+            "yield": 4.36,
+            "payout_ratio": 112.32
+        },
+        {
+            "symbol": "POWERGRID.NS",
+            "name": "POWER GRID CORP. LTD.",
+            "price": 293.1,
+            "yield": 5.12,
+            "payout_ratio": 91.41
+        },
+        {
+            "symbol": "ONGC.NS",
+            "name": "OIL AND NATURAL GAS CORP.",
+            "price": 242.62,
+            "yield": 7.21,
+            "payout_ratio": 60.74
+        }
+    ]
+}

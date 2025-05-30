@@ -1,0 +1,302 @@
+{
+    "AAPL": {
+        "52w_low": 168.99,
+        "today": 200.21,
+        "market": "US"
+    },
+    "MSFT": {
+        "52w_low": 344.16,
+        "today": 460.69,
+        "market": "US"
+    },
+    "NVDA": {
+        "52w_low": 86.62,
+        "today": 135.5,
+        "market": "US"
+    },
+    "AMZN": {
+        "52w_low": 151.61,
+        "today": 206.02,
+        "market": "US"
+    },
+    "GOOGL": {
+        "52w_low": 140.53,
+        "today": 172.9,
+        "market": "US"
+    },
+    "META": {
+        "52w_low": 441.48,
+        "today": 642.32,
+        "market": "US"
+    },
+    "TSLA": {
+        "52w_low": 167.41,
+        "today": 362.89,
+        "market": "US"
+    },
+    "UNH": {
+        "52w_low": 248.88,
+        "today": 295.0,
+        "market": "US"
+    },
+    "JNJ": {
+        "52w_low": 138.38,
+        "today": 153.25,
+        "market": "US"
+    },
+    "V": {
+        "52w_low": 250.88,
+        "today": 359.3,
+        "market": "US"
+    },
+    "WMT": {
+        "52w_low": 63.51,
+        "today": 97.58,
+        "market": "US"
+    },
+    "JPM": {
+        "52w_low": 186.55,
+        "today": 265.29,
+        "market": "US"
+    },
+    "XOM": {
+        "52w_low": 96.91,
+        "today": 103.52,
+        "market": "US"
+    },
+    "PG": {
+        "52w_low": 155.2,
+        "today": 167.76,
+        "market": "US"
+    },
+    "MA": {
+        "52w_low": 426.98,
+        "today": 574.55,
+        "market": "US"
+    },
+    "HD": {
+        "52w_low": 315.91,
+        "today": 370.4,
+        "market": "US"
+    },
+    "CVX": {
+        "52w_low": 130.45,
+        "today": 137.83,
+        "market": "US"
+    },
+    "LLY": {
+        "52w_low": 675.7,
+        "today": 725.22,
+        "market": "US"
+    },
+    "MRK": {
+        "52w_low": 73.31,
+        "today": 77.59,
+        "market": "US"
+    },
+    "PEP": {
+        "52w_low": 127.75,
+        "today": 131.37,
+        "market": "US"
+    },
+    "KO": {
+        "52w_low": 59.3,
+        "today": 71.78,
+        "market": "US"
+    },
+    "AVGO": {
+        "52w_low": 127.35,
+        "today": 235.65,
+        "market": "US"
+    },
+    "ABBV": {
+        "52w_low": 148.2,
+        "today": 185.72,
+        "market": "US"
+    },
+    "TMO": {
+        "52w_low": 390.5,
+        "today": 403.55,
+        "market": "US"
+    },
+    "COST": {
+        "52w_low": 784.15,
+        "today": 1017.79,
+        "market": "US"
+    },
+    "MCD": {
+        "52w_low": 239.29,
+        "today": 314.95,
+        "market": "US"
+    },
+    "BAC": {
+        "52w_low": 33.07,
+        "today": 44.22,
+        "market": "US"
+    },
+    "DIS": {
+        "52w_low": 80.1,
+        "today": 112.36,
+        "market": "US"
+    },
+    "CSCO": {
+        "52w_low": 43.57,
+        "today": 63.75,
+        "market": "US"
+    },
+    "ADBE": {
+        "52w_low": 332.01,
+        "today": 413.1,
+        "market": "US"
+    },
+    "RELIANCE.NS": {
+        "52w_low": 1114.85,
+        "today": 1415.8,
+        "market": "NSE"
+    },
+    "TCS.NS": {
+        "52w_low": 3056.05,
+        "today": 3503.0,
+        "market": "NSE"
+    },
+    "HDFCBANK.NS": {
+        "52w_low": 1454.0,
+        "today": 1923.4,
+        "market": "NSE"
+    },
+    "ICICIBANK.NS": {
+        "52w_low": 1042.08,
+        "today": 1449.5,
+        "market": "NSE"
+    },
+    "INFY.NS": {
+        "52w_low": 1307.0,
+        "today": 1579.9,
+        "market": "NSE"
+    },
+    "HINDUNILVR.NS": {
+        "52w_low": 2136.0,
+        "today": 2371.8,
+        "market": "NSE"
+    },
+    "BHARTIARTL.NS": {
+        "52w_low": 1212.29,
+        "today": 1858.7,
+        "market": "NSE"
+    },
+    "ITC.NS": {
+        "52w_low": 383.09,
+        "today": 420.05,
+        "market": "NSE"
+    },
+    "KOTAKBANK.NS": {
+        "52w_low": 1600.7,
+        "today": 2067.8,
+        "market": "NSE"
+    },
+    "SBIN.NS": {
+        "52w_low": 666.61,
+        "today": 796.0,
+        "market": "NSE"
+    },
+    "BAJFINANCE.NS": {
+        "52w_low": 6335.23,
+        "today": 9245.0,
+        "market": "NSE"
+    },
+    "LICI.NS": {
+        "52w_low": 715.3,
+        "today": 932.05,
+        "market": "NSE"
+    },
+    "ASIANPAINT.NS": {
+        "52w_low": 2124.75,
+        "today": 2304.0,
+        "market": "NSE"
+    },
+    "AXISBANK.NS": {
+        "52w_low": 933.5,
+        "today": 1198.5,
+        "market": "NSE"
+    },
+    "DMART.NS": {
+        "52w_low": 3340.0,
+        "today": 4064.0,
+        "market": "NSE"
+    },
+    "LT.NS": {
+        "52w_low": 2965.3,
+        "today": 3650.5,
+        "market": "NSE"
+    },
+    "MARUTI.NS": {
+        "52w_low": 10725.0,
+        "today": 12362.0,
+        "market": "NSE"
+    },
+    "HCLTECH.NS": {
+        "52w_low": 1195.68,
+        "today": 1652.6,
+        "market": "NSE"
+    },
+    "SUNPHARMA.NS": {
+        "52w_low": 1364.62,
+        "today": 1678.7,
+        "market": "NSE"
+    },
+    "TITAN.NS": {
+        "52w_low": 2925.0,
+        "today": 3565.0,
+        "market": "NSE"
+    },
+    "ADANIENT.NS": {
+        "52w_low": 2025.0,
+        "today": 2533.3,
+        "market": "NSE"
+    },
+    "WIPRO.NS": {
+        "52w_low": 204.44,
+        "today": 248.11,
+        "market": "NSE"
+    },
+    "TECHM.NS": {
+        "52w_low": 1161.51,
+        "today": 1590.5,
+        "market": "NSE"
+    },
+    "ULTRACEMCO.NS": {
+        "52w_low": 9478.74,
+        "today": 11327.0,
+        "market": "NSE"
+    },
+    "NTPC.NS": {
+        "52w_low": 292.8,
+        "today": 340.45,
+        "market": "NSE"
+    },
+    "POWERGRID.NS": {
+        "52w_low": 247.3,
+        "today": 293.15,
+        "market": "NSE"
+    },
+    "NESTLEIND.NS": {
+        "52w_low": 2110.0,
+        "today": 2420.1,
+        "market": "NSE"
+    },
+    "ONGC.NS": {
+        "52w_low": 205.0,
+        "today": 242.83,
+        "market": "NSE"
+    },
+    "JSWSTEEL.NS": {
+        "52w_low": 817.4,
+        "today": 1002.5,
+        "market": "NSE"
+    },
+    "HDFCLIFE.NS": {
+        "52w_low": 509.67,
+        "today": 784.35,
+        "market": "NSE"
+    }
+}

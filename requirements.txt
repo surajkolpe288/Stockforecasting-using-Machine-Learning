@@ -1,0 +1,8 @@
+Flask
+yfinance
+tensorflow
+numpy
+pandas
+scikit-learn
+textblob
+flask-login
