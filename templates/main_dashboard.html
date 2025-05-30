@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Stockyy World 🌎</h2>
+
+    <div class="row">
+        <!-- Buy/Sell Recommendations Card -->
+        <div class="col-md-3 mb-4">
+            <a href="{{ url_for('buy_sell') }}" class="text-decoration-none">
+                <div class="dashboard-button text-center p-4 shadow rounded bg-light">
+                    <h5>Buy/Sell Recommendations</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Closing Prediction Analysis Card -->
+        <div class="col-md-3 mb-4">
+            <a href="{{ url_for('dashboard') }}" class="text-decoration-none">
+                <div class="dashboard-button text-center p-4 shadow rounded bg-light">
+                    <h5>Closing Prediction Analysis</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Stocks in Buzz Card -->
+        <div class="col-md-3 mb-4">
+            <a href="{{ url_for('buzz_stocks') }}" class="text-decoration-none">
+                <div class="dashboard-button text-center p-4 shadow rounded bg-light">
+                    <h5>Stocks in Buzz</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Screener Options Card -->
+        <div class="col-md-3 mb-4">
+            <a href="{{ url_for('screener') }}" class="text-decoration-none">
+                <div class="dashboard-button text-center p-4 shadow rounded bg-light">
+                    <h5>Screener Options</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Upcoming IPOs Card -->
+        <div class="col-md-3 mb-4">
+            <a href="{{ url_for('ipo_page') }}" class="text-decoration-none">
+                <div class="dashboard-button text-center p-4 shadow rounded bg-light">
+                    <h5>Upcoming IPOs</h5>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

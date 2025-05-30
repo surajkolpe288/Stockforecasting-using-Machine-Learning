@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center font-weight-bold">Stock Screener 🧐</h2>
+    <div class="row">
+
+        <!-- High Delivery -->
+        <div class="col-md-4 mb-5">
+            <a href="{{ url_for('high_volume_stocks') }}" class="text-decoration-none" aria-label="High Delivery Stock Screener">
+                <div class="dashboard-button shadow-sm p-3 rounded">
+                    <h5 class="text-center">📈 High Delivery</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- 52 Week High -->
+        <div class="col-md-4 mb-5">
+            <a href="{{ url_for('fifty_two_week_high_stocks') }}" class="text-decoration-none" aria-label="52 Week High Stock Screener">
+                <div class="dashboard-button shadow-sm p-3 rounded">
+                    <h5 class="text-center">📊 52 Week High</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- 52 Week Low -->
+        <div class="col-md-4 mb-5">
+            <a href="{{ url_for('fifty_two_week_low_stocks') }}" class="text-decoration-none" aria-label="52 Week Low Stock Screener">
+                <div class="dashboard-button shadow-sm p-3 rounded">
+                    <h5 class="text-center">📉 52 Week Low</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- High Dividend -->
+        <div class="col-md-4 mb-5">
+            <a href="{{ url_for('high_dividend_stocks') }}" class="text-decoration-none" aria-label="High Dividend Stock Screener">
+                <div class="dashboard-button shadow-sm p-3 rounded">
+                    <h5 class="text-center">💰 High Dividend</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Global ETFs -->
+        <div class="col-md-4 mb-5">
+            <a href="{{ url_for('global_etfs') }}" class="text-decoration-none" aria-label="Global ETFs Dashboard">
+                <div class="dashboard-button shadow-sm p-3 rounded bg-light">
+                    <h5 class="text-center">🌍 Global ETFs</h5>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

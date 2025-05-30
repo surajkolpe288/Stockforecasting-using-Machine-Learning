@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Buy/Sell Recommendation Result</h2>
+
+    <!-- Recommendation Section -->
+    <div class="text-center mb-5">
+        <h4 class="mb-3"><strong>Recommendation for {{ ticker or 'N/A' }}:</strong></h4>
+        <div class="d-flex justify-content-center">
+            {% if 'Hold' in recommendation %}
+            <button class="btn btn-success btn-lg px-4 py-2 mx-2">Hold</button>
+            {% endif %}
+            {% if 'Buy' in recommendation %}
+            <button class="btn btn-success btn-lg px-4 py-2 mx-2">Buy</button>
+            {% endif %}
+            {% if 'Sell' in recommendation %}
+            <button class="btn btn-success btn-lg px-4 py-2 mx-2">Sell</button>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <!-- Analysis Section -->
+    <div class="mb-5">
+        <h4 class="mb-3">Analysis Summary</h4>
+        <div class="p-3 border rounded bg-light shadow-sm">
+            <p class="mb-1">{{ analysis or 'No analysis available.' }}</p>
+            <small class="text-muted">Generated on {{ current_time or 'N/A' }}</small>
+        </div>
+    </div>
+
+
+
+    <!-- Chart Section -->
+    {% if chart_url %}
+    <div class="text-center mb-5">
+        <h4 class="mb-3">Price Trend Chart (1 Year)</h4>
+        <img src="data:image/png;base64,{{ chart_url }}" 
+             class="img-fluid border rounded shadow mx-auto d-block"
+             style="max-width: 100%; max-height: 400px;" 
+             alt="Closing Price Chart for {{ ticker or 'N/A' }}">
+    </div>
+    {% endif %}
+
+    <!-- News Toggle -->
+    {% if news %}
+    <div class="mb-5">
+        <div class="text-center mb-3">
+            <button class="btn btn-outline-info" onclick="toggleNews()">Toggle News</button>
+        </div>
+
+        <div id="newsSection" style="display: none;">
+            <h4 class="text-center mb-4">Recent News Related to {{ ticker or 'N/A' }}</h4>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    {% if news|length > 0 %}
+                    <ul class="list-group">
+                        {% for article in news %}
+                        <li class="list-group-item mb-3 shadow-sm rounded">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <strong>{{ article.title or 'No Title' }}</strong>
+                                <span class="badge 
+                                    {% if article.sentiment == 'positive' %}bg-success
+                                    {% elif article.sentiment == 'neutral' %}bg-warning text-dark
+                                    {% elif article.sentiment == 'negative' %}bg-danger
+                                    {% endif %}">
+                                    {% if article.sentiment == 'positive' %}
+                                        👍 Positive
+                                    {% elif article.sentiment == 'neutral' %}
+                                        😐 Neutral
+                                    {% elif article.sentiment == 'negative' %}
+                                        👎 Negative
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <small class="text-muted">{{ article.publishedAt or '' }}</small>
+                            <p class="mt-2">{{ article.description or 'No description available.' }}</p>
+                            <a href="{{ article.url or '#' }}" target="_blank" class="btn btn-sm btn-outline-primary">Read Full Article</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <div class="text-center mt-4">
+                        <p class="text-muted">No recent news available for {{ ticker or 'N/A' }}.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Style -->
+<style>
+    .btn-lg {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+
+    .btn-warning { background-color: #ffc107; border-color: #ffc107; }
+    .btn-success { background-color: #28a745; border-color: #28a745; }
+    .btn-danger  { background-color: #dc3545; border-color: #dc3545; }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.5em 0.75em;
+    }
+
+    .btn-outline-info {
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-info:hover {
+        background-color: #17a2b8;
+        color: white;
+    }
+</style>
+
+<!-- Script -->
+<script>
+    function toggleNews() {
+        const newsSection = document.getElementById("newsSection");
+        const isHidden = newsSection.style.display === "none";
+        newsSection.style.display = isHidden ? "block" : "none";
+        if (isHidden) {
+            newsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+{% endblock %}

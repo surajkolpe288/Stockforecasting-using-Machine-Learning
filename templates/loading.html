@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Analyzing{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4>Analyzing {{ symbol }}</h4>
+            </div>
+            <div class="card-body text-center">
+                <!-- Updated progress container with data attributes -->
+                <div id="progress-container" data-symbol="{{ symbol }}" data-date="{{ date }}">
+                    <div class="spinner-border text-primary mb-3"></div>
+                    <h5 id="status">Starting analysis...</h5>
+                    
+                    <div class="progress mt-3">
+                        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                             role="progressbar" style="width: 0%">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const progressContainer = document.getElementById('progress-container');
+const symbol = progressContainer.dataset.symbol;
+const date = progressContainer.dataset.date;
+
+function checkProgress(step = 0) {
+    fetch("{{ url_for('process_analysis') }}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({symbol: symbol, date: date, step: step})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.error) {
+            window.location.href = data.redirect;
+            return;
+        }
+
+        // Update status and progress bar
+        document.getElementById('status').textContent = data.status;
+        const progressBar = document.getElementById('progress-bar');
+        progressBar.style.width = data.progress + '%';
+        progressBar.textContent = data.progress + '%';
+
+        if (data.completed) {
+            window.location.href = data.redirect;
+        } else {
+            setTimeout(() => checkProgress(data.step), 1000);
+        }
+    });
+}
+
+// Start checking progress shortly after page load
+setTimeout(checkProgress, 1000);
+</script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Buy/Sell Recommendations</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="ticker" class="form-label">Stock Ticker</label>
+            <input type="text" class="form-control" id="ticker" name="ticker" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Do you currently own this stock?</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="has_stock" id="has_stock_yes" value="yes" required>
+                <label class="form-check-label" for="has_stock_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="has_stock" id="has_stock_no" value="no" required>
+                <label class="form-check-label" for="has_stock_no">No</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duration (in months)</label>
+            <input type="number" class="form-control" id="duration" name="duration" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Investment Term</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="term" id="term_short" value="short" required>
+                <label class="form-check-label" for="term_short">Short Term</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="term" id="term_long" value="long" required>
+                <label class="form-check-label" for="term_long">Long Term</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Get Recommendation</button>
+    </form>
+
+    {% if recommendation %}
+        <div class="mt-4">
+            <h4>Recommendation</h4>
+            <p><strong>Stock Ticker:</strong> {{ ticker }}</p>
+            <p><strong>Recommendation:</strong> {{ recommendation }}</p>
+            <p><strong>Analysis:</strong> {{ analysis }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

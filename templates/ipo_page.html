@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Upcoming IPOs</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th class="px-4 py-3">Company Name</th>
+                    <th class="px-4 py-3">Date</th>
+                    <th class="px-4 py-3">Exchange</th>
+                    <th class="px-4 py-3">Price Range</th>
+                    <th class="px-4 py-3">Shares Offered</th>
+                    <th class="px-4 py-3">Verdict</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {% for ipo in ipo_data %}
+                <tr>
+                    <td class="px-4 py-3">{{ ipo.name }}</td>
+                    <td class="px-4 py-3">{{ ipo.date }}</td>
+                    <td class="px-4 py-3">{{ ipo.exchange or 'N/A' }}</td>
+                    <td class="px-4 py-3">{{ ipo.price or 'N/A' }}</td>
+                    <td class="px-4 py-3">{{ ipo.numberOfShares or 'N/A' }}</td>
+                    <td class="px-4 py-3">
+                        {% if ipo.verdict %}
+                            {% if 'STRONG BUY' in ipo.verdict %}
+                                <span class="badge badge-success px-3 py-2 fs-6">{{ ipo.verdict }}</span>
+                            {% elif 'BUY' in ipo.verdict %}
+                                <span class="badge badge-success px-3 py-2 fs-6">{{ ipo.verdict }}</span>
+                            {% elif 'NEUTRAL' in ipo.verdict %}
+                                <span class="badge badge-warning px-3 py-2 fs-6">{{ ipo.verdict }}</span>
+                            {% elif 'AVOID' in ipo.verdict %}
+                                <span class="badge badge-danger px-3 py-2 fs-6">{{ ipo.verdict }}</span>
+                            {% else %}
+                                <span class="badge badge-secondary px-3 py-2 fs-6">{{ ipo.verdict }}</span>
+                            {% endif %}
+                        {% else %}
+                            <span class="badge badge-secondary px-3 py-2 fs-6">N/A</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

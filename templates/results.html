@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body_class %}bg-light{% endblock %}
+
+{% block content %}
+<div class="container result-container">
+    <h2>Prediction Results for <span class="highlight">{{ ticker }}</span></h2>
+
+    <div class="prediction-values">
+        <p><strong>LSTM Prediction:</strong> {{ prediction['LSTM'] }}</p>
+        <p><strong>GRU Prediction:</strong> {{ prediction['GRU'] }}</p>
+        <p><strong>Linear Regression Prediction:</strong> {{ prediction['Linear Regression'] }}</p>
+
+        <!-- Updated this part: -->
+        <p><strong>Sentiment Score:</strong> {{ sentiment.score }}</p>
+        <p><strong>Sentiment Verdict:</strong> {{ sentiment.verdict }}</p>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="stockChart"></canvas>
+    </div>
+</div>
+
+<script>
+    const ctx = document.getElementById('stockChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['LSTM', 'GRU', 'Linear Regression'],
+            datasets: [{
+                label: 'Stock Predictions',
+                data: [{{ prediction['LSTM'] }}, {{ prediction['GRU'] }}, {{ prediction['Linear Regression'] }}],
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                borderWidth: 2,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: { mode: 'index', intersect: false }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+{% endblock %}

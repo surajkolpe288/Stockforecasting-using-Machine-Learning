@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center font-weight-bold">🔥 Stocks in Buzz</h2>
+
+    {% if stocks %}
+    <div class="card shadow p-4 mb-5 bg-white rounded">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">📌 Company</th>
+                        <th scope="col">🔖 Symbol</th>
+                        <th scope="col">📣 Mentions</th>
+                        <th scope="col">📊 Avg. Sentiment</th>
+                        <th scope="col">💰 Current Price (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in stocks %}
+                    <tr>
+                        <td class="font-weight-bold">
+                            {{ stock.company }}  <!-- No link, just plain text -->
+                        </td>
+                        <td>
+                            <span class="badge badge-info p-2">{{ stock.symbol }}</span>
+                        </td>
+                        <td>{{ stock.mentions }}</td>
+                        <td>
+                            <span class="badge 
+                                {% if stock.average_sentiment > 0.2 %}
+                                    badge-success
+                                {% elif stock.average_sentiment < -0.2 %}
+                                    badge-danger
+                                {% else %}
+                                    badge-secondary
+                                {% endif %} p-2" 
+                                data-toggle="tooltip" data-placement="top" title="Positive sentiment indicates good market mood, negative sentiment indicates caution.">
+                                {{ stock.average_sentiment | round(2) }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if stock.current_price == 'N/A' %}
+                                <span class="text-warning">Price Unavailable</span>
+                            {% else %}
+                                ${{ stock.current_price }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center" role="alert">
+        🚫 No buzzing stocks found at the moment. Please try again later!
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
