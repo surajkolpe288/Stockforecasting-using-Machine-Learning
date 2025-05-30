@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center fw-bold">📈 52-Week High Stocks</h2>
+
+    <!-- US Stocks Section -->
+    <center>
+        <h4 class="mb-4 mt-5 text-center fw-bold" style="font-size: 2rem;">US Stocks</h4>
+    </center>
+    <div class="table-responsive mb-5">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="table-dark text-nowrap">
+                <tr>
+                    <th class="text-center px-4 py-3">Symbol</th>
+                    <th class="text-center px-4 py-3">Name</th>
+                    <th class="text-center px-4 py-3">Today's Price</th>
+                    <th class="text-center px-4 py-3">52-Week High</th>
+                    <th class="text-center px-4 py-3">Percent Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data_us %}
+                    {% for stock in data_us %}
+                    <tr>
+                        <td class="text-center">{{ stock.symbol }}</td>
+                        <td class="text-center">{{ stock.name }}</td>
+                        <td class="text-center">${{ "{:,.2f}".format(stock.today) }}</td>
+                        <td class="text-center">${{ "{:,.2f}".format(stock.high) }}</td>
+                        <td class="text-center">{{ stock.percent_diff }}%</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center">No US stocks found near 52-week high.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- NSE Stocks Section -->
+    <center>
+        <h4 class="mb-4 mt-5 text-center fw-bold" style="font-size: 2rem;">NSE Stocks</h4>
+    </center>
+    <div class="table-responsive mb-5">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="table-dark text-nowrap">
+                <tr>
+                    <th class="text-center px-4 py-3">Symbol</th>
+                    <th class="text-center px-4 py-3">Name</th>
+                    <th class="text-center px-4 py-3">Today's Price</th>
+                    <th class="text-center px-4 py-3">52-Week High</th>
+                    <th class="text-center px-4 py-3">Percent Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data_nse %}
+                    {% for stock in data_nse %}
+                    <tr>
+                        <td class="text-center">{{ stock.symbol }}</td>
+                        <td class="text-center">{{ stock.name }}</td>
+                        <td class="text-center">₹{{ "{:,.2f}".format(stock.today) }}</td>
+                        <td class="text-center">₹{{ "{:,.2f}".format(stock.high) }}</td>
+                        <td class="text-center">{{ stock.percent_diff }}%</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center">No NSE stocks found near 52-week high.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
